@@ -1,5 +1,6 @@
 ﻿using AISPHRD.Data;
 using AISPHRD.Repositories;
+using AISPHRD.Windows;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using System.Windows;
@@ -30,12 +31,12 @@ namespace AISPHRD
             services.AddDbContext<ApplicationDbContext>(options =>
                     options.UseSqlite("Data Source=database.db"));
 
-            services.AddSingleton<MainWindow>();
+            services.AddSingleton<LoginWindow>();
         }
 
         private void OnStartup(object sender, StartupEventArgs e)
         {
-            var mainWindow = _serviceProvider.GetService<MainWindow>();
+            var mainWindow = _serviceProvider.GetService<LoginWindow>();
             mainWindow.Show();
         }
     }
