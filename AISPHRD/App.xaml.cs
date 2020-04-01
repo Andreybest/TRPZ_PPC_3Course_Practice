@@ -1,5 +1,6 @@
 ﻿using AISPHRD.Data;
 using AISPHRD.Repositories;
+using AISPHRD.Tabs;
 using AISPHRD.Windows;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
@@ -12,13 +13,13 @@ namespace AISPHRD
     /// </summary>
     public partial class App : Application
     {
-        private readonly ServiceProvider _serviceProvider;
+        public static ServiceProvider ServiceProvider;
 
         public App()
         {
             var serviceCollection = new ServiceCollection();
             ConfigureServices(serviceCollection);
-            _serviceProvider = serviceCollection.BuildServiceProvider();
+            ServiceProvider = serviceCollection.BuildServiceProvider();
         }
 
         private void ConfigureServices(IServiceCollection services)
@@ -32,11 +33,12 @@ namespace AISPHRD
                     options.UseSqlite("Data Source=database.db"));
 
             services.AddSingleton<LoginWindow>();
+            services.AddScoped<TabsWindow>();
         }
 
-        private void OnStartup(object sender, StartupEventArgs e)
+        public void OnStartup(object sender, StartupEventArgs e)
         {
-            var mainWindow = _serviceProvider.GetService<LoginWindow>();
+            var mainWindow = ServiceProvider.GetService<LoginWindow>();
             mainWindow.Show();
         }
     }

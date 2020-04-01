@@ -1,0 +1,49 @@
+﻿<local:TabUserControl x:Class="AISPHRD.Tabs.WorkersUserControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:AISPHRD.Tabs"
+             mc:Ignorable="d" 
+             d:DesignHeight="500" d:DesignWidth="1080">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="41*"/>
+            <RowDefinition Height="209*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="23*"/>
+            <ColumnDefinition Width="1034*"/>
+            <ColumnDefinition Width="23*"/>
+        </Grid.ColumnDefinitions>
+        <Label Content="УСІ ПРАЦІВНИКИ" Margin="0,20,0,0" FontSize="14" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Top" Height="27" Width="120"/>
+        <Label x:Name="WorkersAmountLabel" Content="Усього в системі зареєстрованно" Margin="0,50,0,0" FontSize="14" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Top" Height="27" Width="auto"/>
+        <Button x:Name="AddWorkerButton" Content="Додати" HorizontalAlignment="Right" Margin="0,10,30,0" VerticalAlignment="Top" Width="100" Height="36" Grid.Column="1" Click="AddWorkerButton_Click"/>
+        <DataGrid x:Name="WorkersDataGrid" Grid.Column="1" VerticalAlignment="Top" Grid.Row="1" AutoGenerateColumns="False" SelectionMode="Single" Height="400" CanUserAddRows="False" CanUserDeleteRows="False" CanUserResizeRows="False" IsReadOnly="True">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Ім'я працівника" Binding="{Binding FullName}"/>
+                <DataGridTextColumn Header="Відділ" Binding="{Binding Department}"/>
+                <DataGridTextColumn Header="Стать" Binding="{Binding Sex}"/>
+                <DataGridTextColumn Header="Дата Народження" Binding="{Binding BirthDate}"/>
+                <DataGridTextColumn Header="Тип Робочого?" Binding="{Binding WorkerType}"/>
+                <DataGridTemplateColumn Header="Військовий квиток">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button x:Name="OpenMilitaryIDButton" Click="OpenMilitaryIDButton_Click" Content="Переглянути"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Header="Дії">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <Button x:Name="EditWorkerButton" Content="Змінити" Click="EditWorkerButton_Click"/>
+                                <Button x:Name="DeleteWorkerButton" Content="Видалити" Click="DeleteWorkerButton_Click" Margin="10,0,0,0"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</local:TabUserControl>

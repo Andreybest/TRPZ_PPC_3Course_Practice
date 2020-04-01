@@ -21,5 +21,10 @@ namespace AISPHRD.Models
         public DateTime BirthDate { get; set; }
 
         public Conscript Conscript { get; set; }
+
+        public override string ToString()
+        {
+            return FullName;
+        }
     }
 }

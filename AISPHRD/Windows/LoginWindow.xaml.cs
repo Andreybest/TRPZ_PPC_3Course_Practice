@@ -1,5 +1,7 @@
 ﻿using AISPHRD.Models;
 using AISPHRD.Repositories;
+using Microsoft.Extensions.DependencyInjection;
+using System;
 using System.Windows;
 
 namespace AISPHRD.Windows
@@ -10,10 +12,12 @@ namespace AISPHRD.Windows
     public partial class LoginWindow : Window
     {
         private IUserRepository _userRepository;
+        private IServiceProvider _serviceProvider;
 
-        public LoginWindow(IUserRepository userRepository)
+        public LoginWindow(IUserRepository userRepository, IServiceProvider serviceProvider)
         {
             _userRepository = userRepository;
+            _serviceProvider = serviceProvider;
             InitializeComponent();
         }
 
@@ -39,7 +43,9 @@ namespace AISPHRD.Windows
 
             if (user.Password == PasswordBox.Password)
             {
-                // TO-DO
+                PasswordBox.Password = "12345678";
+                _serviceProvider.GetService<TabsWindow>().Show();
+                Hide();
             }
             else
             {
