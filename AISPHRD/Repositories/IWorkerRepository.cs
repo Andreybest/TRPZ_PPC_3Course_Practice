@@ -7,6 +7,8 @@ namespace AISPHRD.Repositories
     {
         List<Worker> GetAll();
 
+        List<Worker> GetAllWithMilitaryID();
+
         Worker GetWorker(int workerId);
 
         void Insert(Worker worker);

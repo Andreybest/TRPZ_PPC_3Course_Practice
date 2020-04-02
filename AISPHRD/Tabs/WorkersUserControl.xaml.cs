@@ -46,11 +46,6 @@ namespace AISPHRD.Tabs
             WorkersAmountLabel.Content = "Усього в системі зареєстрованно " + _workerRepository.GetAll().Count;
         }
 
-        private void OpenMilitaryIDButton_Click(object sender, RoutedEventArgs e)
-        {
-            App.ServiceProvider.GetService<TabsWindow>().CreateNewTab(new ViewMilitaryIDUserControl((WorkersDataGrid.SelectedItem as Worker).MilitaryID), "ПРАЦІВНИК / ПЕРЕГЛЯД ВІЙСЬКОВОГО БІЛЕТУ");
-        }
-
         private void EditWorkerButton_Click(object sender, RoutedEventArgs e)
         {
             App.ServiceProvider.GetService<TabsWindow>().CreateNewTab(new EditWorkerUserControl((WorkersDataGrid.SelectedItem as Worker)), "ПРАЦІВНИК / РЕДАГУВАННЯ");

@@ -48,39 +48,6 @@ namespace AISPHRD.Tabs.Edit
             FillFields(_editedWorker);
         }
 
-        private void FilePickerButton_Click(object sender, RoutedEventArgs e)
-        {
-            OpenFileDialog dlg = new OpenFileDialog();
-
-            // Set filter for file extension and default file extension 
-            dlg.DefaultExt = ".jpeg";
-            dlg.Filter = "JPEG Files (*.jpeg)|*.jpeg|PNG Files (*.png)|*.png|JPG Files (*.jpg)|*.jpg|GIF Files (*.gif)|*.gif";
-
-
-            // Display OpenFileDialog by calling ShowDialog method 
-            bool? result = dlg.ShowDialog();
-
-
-            // Get the selected file name and display in a TextBox 
-            if (result == true)
-            {
-                // Open document 
-                FilePickerButton.Content = dlg.SafeFileName;
-
-                byte[] bytes = File.ReadAllBytes(dlg.FileName);
-                BitmapImage bitmap = new BitmapImage();
-                bitmap.BeginInit();
-                bitmap.StreamSource = new MemoryStream(bytes);
-                bitmap.EndInit();
-
-                JpegBitmapEncoder encoder = new JpegBitmapEncoder();
-                encoder.Frames.Add(BitmapFrame.Create(bitmap));
-                MemoryStream stream = new MemoryStream();
-                encoder.Save(stream);
-                _editedWorker.MilitaryID = stream.ToArray();
-            }
-        }
-
         private void SaveButton_Click(object sender, RoutedEventArgs e)
         {
             try

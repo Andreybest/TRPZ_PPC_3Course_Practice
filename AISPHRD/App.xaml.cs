@@ -26,6 +26,7 @@ namespace AISPHRD
         {
             services.AddTransient<IConscriptRepository, ConscriptRepository>();
             services.AddTransient<IWorkerRepository, WorkerRepository>();
+            services.AddTransient<IMilitaryIDRepository, MilitaryIDRepository>();
             services.AddTransient<IStudentRepository, StudentRepository>();
             services.AddTransient<IUserRepository, UserRepository>();
 

@@ -18,6 +18,12 @@ namespace AISPHRD
         {
             return _context.Workers.ToList();
         }
+
+        public List<Worker> GetAllWithMilitaryID()
+        {
+            return _context.Workers.Where(w => w.MilitaryID != null).ToList();
+        }
+
         public Worker GetWorker(int workerId)
         {
             return _context.Workers.FirstOrDefault(w => w.WorkerId == workerId);

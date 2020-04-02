@@ -17,6 +17,8 @@ namespace AISPHRD.Data
 
         public DbSet<Worker> Workers { get; set; }
 
+        public DbSet<MilitaryID> MilitaryIDs { get; set; }
+
         public DbSet<User> Users { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

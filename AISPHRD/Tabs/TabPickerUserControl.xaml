@@ -25,7 +25,8 @@
         </Grid.ColumnDefinitions>
         <Button x:Name="WorkersButton" Content="Працівники" Height="102" VerticalAlignment="Top" Click="WorkersButton_Click" Grid.Column="1" Grid.Row="1" VerticalContentAlignment="Center"/>
         <Button x:Name="StudentsButton" Content="Студенти" HorizontalAlignment="Stretch" VerticalAlignment="Top" Click="StudentsButton_Click" Grid.Column="3" Grid.Row="1" Height="102" VerticalContentAlignment="Center"/>
-        <Button x:Name="ConscriptsButton" Content="Військовозобов'язані" Height="102" HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="0,0,7,0" Click="ConscriptsButton_Click" Grid.Column="5" Grid.Row="1" VerticalContentAlignment="Center"/>
-        <Button x:Name="TabelButton" Content="Табель" Height="102" HorizontalAlignment="Stretch" VerticalAlignment="Top" Click="TabelButton_Click" Grid.Row="3" Grid.Column="1" VerticalContentAlignment="Center"/>
+        <Button x:Name="ConscriptsButton" Content="Військовозобов'язані" Height="102" HorizontalAlignment="Stretch" VerticalAlignment="Top" Click="ConscriptsButton_Click" Grid.Column="5" Grid.Row="1" VerticalContentAlignment="Center"/>
+        <Button x:Name="MilitaryIDsButton" Content="Військові білети працівників" Height="102" VerticalAlignment="Top" Click="MilitaryIDsButton_Click" Grid.Column="1" Grid.Row="3" VerticalContentAlignment="Center"/>
+        <Button x:Name="TabelButton" Content="Табель" Height="102" VerticalAlignment="Top" Click="TabelButton_Click" Grid.Row="3" Grid.Column="3" VerticalContentAlignment="Center"/>
     </Grid>
 </local:TabUserControl>

@@ -16,6 +16,11 @@ namespace AISPHRD.Models
 
         public string WorkerType { get; set; }
 
-        public byte[] MilitaryID { get; set; }
+        public MilitaryID MilitaryID { get; set; }
+
+        public override string ToString()
+        {
+            return FullName;
+        }
     }
 }

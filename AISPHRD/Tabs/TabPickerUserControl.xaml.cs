@@ -42,6 +42,11 @@ namespace AISPHRD.Tabs
             App.ServiceProvider.GetService<TabsWindow>().CreateNewTab(new ConscriptsUserControl(), "ВІЙСЬКОВОЗОБОВ'ЯЗАНІ");
         }
 
+        private void MilitaryIDsButton_Click(object sender, RoutedEventArgs e)
+        {
+            App.ServiceProvider.GetService<TabsWindow>().CreateNewTab(new MilitaryIDsUserControl(), "ПРАЦІВНИКИ / ВІЙСЬКОВІ БІЛЕТИ");
+        }
+
         private void TabelButton_Click(object sender, RoutedEventArgs e)
         {
             App.ServiceProvider.GetService<TabsWindow>().CreateNewTab(new TabelUserControl(), "ТАБЕЛЬ");
