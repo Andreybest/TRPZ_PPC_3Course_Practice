@@ -13,6 +13,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Microsoft.Extensions.DependencyInjection;
+using System.IO;
+using System.Diagnostics;
 
 namespace AISPHRD.Tabs
 {
@@ -49,7 +51,15 @@ namespace AISPHRD.Tabs
 
         private void TabelButton_Click(object sender, RoutedEventArgs e)
         {
-            App.ServiceProvider.GetService<TabsWindow>().CreateNewTab(new TabelUserControl(), "ТАБЕЛЬ");
+            try
+            {
+                string excelFilePath = Directory.GetCurrentDirectory() + @"\Excel\forma_p-5_6.xls";
+                Process.Start("cmd.exe", "/c " + excelFilePath);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Сталася помилка при відкритті файлу, будь-ласка, перевірте чи стоїть у вас позамовчуванням программа для відкриття .xls файлів. І те що сам файл табелю не видалений.");
+            }
         }
     }
 }
