@@ -7,6 +7,8 @@ namespace AISPHRD.Repositories
     {
         List<Student> GetAll();
 
+        List<Student> GetAllBySearchString(string searchString);
+
         Student GetStudent(int studentId);
 
         void Insert(Student student);

@@ -20,6 +20,11 @@ namespace AISPHRD.Repositories
             return _context.MilitaryIDs.ToList();
         }
 
+        public List<MilitaryID> GetAllBySearchString(string searchString)
+        {
+            return _context.MilitaryIDs.Where(m => m.Worker.FullName.Contains(searchString)).ToList();
+        }
+
         public MilitaryID GetMilitaryID(int militaryIDId)
         {
             return _context.MilitaryIDs.FirstOrDefault(m => m.MilitaryIDId == militaryIDId);

@@ -19,9 +19,12 @@ namespace AISPHRD
             return _context.Workers.ToList();
         }
 
-        public List<Worker> GetAllWithMilitaryID()
+        public List<Worker> GetAllBySearchString(string searchString)
         {
-            return _context.Workers.Where(w => w.MilitaryID != null).ToList();
+            return _context.Workers.Where(w => w.FullName.Contains(searchString)
+                                                || w.Department.Contains(searchString)
+                                                || w.Sex.Contains(searchString)
+                                                || w.WorkerType.Contains(searchString)).ToList();
         }
 
         public Worker GetWorker(int workerId)

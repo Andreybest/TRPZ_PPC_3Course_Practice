@@ -7,6 +7,8 @@ namespace AISPHRD.Repositories
     {
         List<Conscript> GetAll();
 
+        List<Conscript> GetAllBySearchString(string searchString);
+
         Conscript GetConscript(int conscriptId);
 
         void Insert(Conscript conscript);

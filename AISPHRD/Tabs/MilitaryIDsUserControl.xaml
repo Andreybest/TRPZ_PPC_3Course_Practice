@@ -19,6 +19,10 @@
         <Label Content="УСІ ПРАЦІВНИКИ З ВІЙСЬКОВИМ КВИТКОМ" Margin="0,20,0,0" FontSize="14" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Top" Height="27"/>
         <Label x:Name="MilitaryIDsAmountLabel" Content="Усього в системі зареєстрованно" Margin="0,50,0,0" FontSize="14" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Top" Height="27" Width="auto"/>
         <Button x:Name="AddMilitaryIDButton" Content="Додати" HorizontalAlignment="Right" Margin="0,10,30,0" VerticalAlignment="Top" Width="100" Height="36" Grid.Column="1" Click="AddMilitaryIDButton_Click"/>
+
+        <TextBox x:Name="SearchTextBox" HorizontalAlignment="Right" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" Grid.Column="1" Margin="0,15,200,0" FontSize="14" TextChanged="SearchTextBox_TextChanged"/>
+        <Label Content="Пошук:" FontSize="14" HorizontalAlignment="Right" VerticalAlignment="Top" Grid.Column="1" Margin="0,15,405,0"/>
+
         <DataGrid x:Name="MilitaryIDsDataGrid" Grid.Column="1" VerticalAlignment="Top" Grid.Row="1" AutoGenerateColumns="False" SelectionMode="Single" Height="400" CanUserAddRows="False" CanUserDeleteRows="False" CanUserResizeRows="False" IsReadOnly="True">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Ім'я працівника" Binding="{Binding Worker}"/>

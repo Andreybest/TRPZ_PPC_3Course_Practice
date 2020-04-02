@@ -9,6 +9,8 @@ namespace AISPHRD.Repositories
     {
         List<MilitaryID> GetAll();
 
+        List<MilitaryID> GetAllBySearchString(string searchString);
+
         MilitaryID GetMilitaryID(int militaryIDId);
 
         void Insert(MilitaryID militaryID);

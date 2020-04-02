@@ -18,6 +18,16 @@ namespace AISPHRD
         {
             return _context.Students.ToList();
         }
+
+        public List<Student> GetAllBySearchString(string searchString)
+        {
+            return _context.Students.Where(s => s.FullName.Contains(searchString)
+                                                || s.Speciality.Contains(searchString)
+                                                || s.Faculty.Contains(searchString)
+                                                || s.Sex.Contains(searchString)
+                                                || s.Address.Contains(searchString)).ToList();
+        }
+
         public Student GetStudent(int studentId)
         {
             return _context.Students.FirstOrDefault(s => s.StudentId == studentId);

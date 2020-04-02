@@ -7,7 +7,7 @@ namespace AISPHRD.Repositories
     {
         List<Worker> GetAll();
 
-        List<Worker> GetAllWithMilitaryID();
+        List<Worker> GetAllBySearchString(string searchString);
 
         Worker GetWorker(int workerId);
 

@@ -18,6 +18,12 @@ namespace AISPHRD
         {
             return _context.Conscripts.ToList();
         }
+
+        public List<Conscript> GetAllBySearchString(string searchString)
+        {
+            return _context.Conscripts.Where(c => c.Student.FullName.Contains(searchString)).ToList();
+        }
+
         public Conscript GetConscript(int conscriptId)
         {
             return _context.Conscripts.FirstOrDefault(c => c.ConscriptId == conscriptId);

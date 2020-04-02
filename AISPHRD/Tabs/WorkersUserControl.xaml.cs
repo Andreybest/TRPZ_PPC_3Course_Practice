@@ -37,6 +37,11 @@ namespace AISPHRD.Tabs
 
         public void UpdateTable(DataGrid dataGrid, IWorkerRepository workerRepository)
         {
+            if (SearchTextBox.Text.Length > 0)
+            {
+                dataGrid.ItemsSource = workerRepository.GetAllBySearchString(SearchTextBox.Text);
+                return;
+            }
             dataGrid.ItemsSource = workerRepository.GetAll();
         }
 
@@ -64,6 +69,11 @@ namespace AISPHRD.Tabs
         private void AddWorkerButton_Click(object sender, RoutedEventArgs e)
         {
             App.ServiceProvider.GetService<TabsWindow>().CreateNewTab(new AddWorkerUserControl(), "ПРАЦІВНИК / ДОДАВАННЯ");
+        }
+
+        private void SearchTextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            UpdateTable(WorkersDataGrid, _workerRepository);
         }
     }
 }

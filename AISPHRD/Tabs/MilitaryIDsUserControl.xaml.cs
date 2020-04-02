@@ -36,6 +36,11 @@ namespace AISPHRD.Tabs
 
         public void UpdateTable(DataGrid dataGrid, IMilitaryIDRepository militaryIDRepository)
         {
+            if (SearchTextBox.Text.Length > 0)
+            {
+                dataGrid.ItemsSource = militaryIDRepository.GetAllBySearchString(SearchTextBox.Text);
+                return;
+            }
             dataGrid.ItemsSource = militaryIDRepository.GetAll();
         }
 
@@ -68,6 +73,11 @@ namespace AISPHRD.Tabs
         private void AddMilitaryIDButton_Click(object sender, RoutedEventArgs e)
         {
             App.ServiceProvider.GetService<TabsWindow>().CreateNewTab(new AddMilitaryIDUserControl(), "ПРАЦІВНИК / ДОДАВАННЯ ВІЙСЬКОВОГО БІЛЕТУ");
+        }
+
+        private void SearchTextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            UpdateTable(MilitaryIDsDataGrid, _militaryIDRepository);
         }
     }
 }

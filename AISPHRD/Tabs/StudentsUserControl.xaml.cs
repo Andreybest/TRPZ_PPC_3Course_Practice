@@ -35,6 +35,11 @@ namespace AISPHRD.Tabs
 
         public void UpdateTable(DataGrid dataGrid, IStudentRepository studentRepository)
         {
+            if (SearchTextBox.Text.Length > 0)
+            {
+                dataGrid.ItemsSource = studentRepository.GetAllBySearchString(SearchTextBox.Text);
+                return;
+            }
             dataGrid.ItemsSource = studentRepository.GetAll();
         }
 
@@ -70,6 +75,11 @@ namespace AISPHRD.Tabs
         private void AddStudentButton_Click(object sender, RoutedEventArgs e)
         {
             App.ServiceProvider.GetService<TabsWindow>().CreateNewTab(new AddStudentUserControl(), "СТУДЕНТ / ДОДАВАННЯ");
+        }
+
+        private void SearchTextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            UpdateTable(StudentsDataGrid, _studentRepository);
         }
     }
 }

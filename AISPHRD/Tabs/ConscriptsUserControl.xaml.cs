@@ -36,6 +36,11 @@ namespace AISPHRD.Tabs
 
         public void UpdateTable(DataGrid dataGrid, IConscriptRepository conscriptRepository)
         {
+            if (SearchTextBox.Text.Length > 0)
+            {
+                dataGrid.ItemsSource = conscriptRepository.GetAllBySearchString(SearchTextBox.Text);
+                return;
+            }
             dataGrid.ItemsSource = conscriptRepository.GetAll();
         }
 
@@ -63,6 +68,11 @@ namespace AISPHRD.Tabs
         private void AddConscriptButton_Click(object sender, RoutedEventArgs e)
         {
             App.ServiceProvider.GetService<TabsWindow>().CreateNewTab(new AddConscriptUserControl(), "ВІЙСЬКОВОЗОБОВ'ЯЗАНИЙ / ДОДАВАННЯ");
+        }
+
+        private void SearchTextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            UpdateTable(ConscriptsDataGrid, _conscriptRepository);
         }
     }
 }
