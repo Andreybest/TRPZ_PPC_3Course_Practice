@@ -109,5 +109,13 @@ namespace AISPHRD.Windows
                 ((TabablzTabControl.SelectedItem as TabItem).Content as TabUserControl).OnSelection();
             }
         }
+
+        private void CloseTabButton_Click(object sender, RoutedEventArgs e)
+        {
+            if ((TabablzTabControl.SelectedItem as TabItem).Header is string)
+            {
+                CloseTab((TabablzTabControl.SelectedItem as TabItem).Header.ToString());
+            }
+        }
     }
 }
