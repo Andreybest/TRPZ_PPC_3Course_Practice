@@ -1,7 +1,5 @@
 ﻿using AISPHRD.Models;
-using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace AISPHRD.Repositories
 {

@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace AISPHRD.Models
+﻿namespace AISPHRD.Models
 {
     public class MilitaryID
     {

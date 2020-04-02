@@ -1,6 +1,5 @@
 ﻿using AISPHRD.Data;
 using AISPHRD.Repositories;
-using AISPHRD.Tabs;
 using AISPHRD.Windows;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;

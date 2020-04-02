@@ -1,6 +1,5 @@
 using Microsoft.EntityFrameworkCore;
 using AISPHRD.Models;
-using System;
 
 namespace AISPHRD.Data
 {
