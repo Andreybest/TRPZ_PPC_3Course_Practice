@@ -9,7 +9,7 @@
         Title="Вхід в систему" Height="450" Width="800"
         Background="White"
         WindowStyle="None"
-        WindowStartupLocation="CenterScreen">
+        WindowStartupLocation="CenterScreen" AllowsTransparency="True">
     <Grid x:Name="MainGrid">
         <Rectangle x:Name="BackgroundRectangle" Height="280" VerticalAlignment="Top">
             <Rectangle.Fill>

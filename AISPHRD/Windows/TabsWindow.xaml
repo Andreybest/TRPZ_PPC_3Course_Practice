@@ -7,7 +7,7 @@
         xmlns:dragablz="http://dragablz.net/winfx/xaml/dragablz"
         xmlns:tabs="clr-namespace:AISPHRD.Tabs"
         mc:Ignorable="d"
-        Title="АІС" Height="600" Width="1080" WindowStartupLocation="CenterScreen" WindowStyle="None">
+        Title="АІС" Height="600" Width="1080" WindowStartupLocation="CenterScreen" WindowStyle="None" AllowsTransparency="True">
     <Grid x:Name="MainGrid">
         <Grid x:Name="HeaderGrid" Height="60" VerticalAlignment="Top" Background="DeepSkyBlue" MouseLeftButtonDown="HeaderGrid_MouseLeftButtonDown">
             <TextBlock x:Name="AppNameTextBlock" Text="АІС" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="22" FontFamily="Champagne &amp; Limousines" />
