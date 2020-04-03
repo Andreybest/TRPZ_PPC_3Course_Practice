@@ -28,12 +28,6 @@ namespace AISPHRD.Windows
 
         private void LoginButton_Click(object sender, RoutedEventArgs e)
         {
-            if (LoginTextBox.Text.Length < 1 || PasswordBox.Password.Length < 1)
-            {
-                MessageBox.Show("Заповніть усі поля");
-                return;
-            }
-
             User user = _userRepository.GetUser(LoginTextBox.Text);
             if (user == null)
             {
@@ -43,7 +37,7 @@ namespace AISPHRD.Windows
 
             if (user.Password == PasswordBox.Password)
             {
-                PasswordBox.Password = "12345678";
+                PasswordBox.Password = "";
                 _serviceProvider.GetService<TabsWindow>().Show();
                 Hide();
             }

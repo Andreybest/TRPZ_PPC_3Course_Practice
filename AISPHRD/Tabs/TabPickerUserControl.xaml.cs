@@ -4,6 +4,7 @@ using System.Windows;
 using Microsoft.Extensions.DependencyInjection;
 using System.IO;
 using System.Diagnostics;
+using AISPHRD.Tabs.Edit;
 
 namespace AISPHRD.Tabs
 {
@@ -49,6 +50,11 @@ namespace AISPHRD.Tabs
             {
                 MessageBox.Show("Сталася помилка при відкритті файлу, будь-ласка, перевірте чи стоїть у вас позамовчуванням программа для відкриття .xls файлів. І те що сам файл табелю не видалений.");
             }
+        }
+
+        private void PasswordChangeButton_Click(object sender, RoutedEventArgs e)
+        {
+            App.ServiceProvider.GetService<TabsWindow>().CreateNewTab(new EditUserPasswordUserControl(), "ЗМІНА ПАРОЛЮ");
         }
     }
 }
