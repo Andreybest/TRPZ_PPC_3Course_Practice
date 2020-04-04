@@ -25,7 +25,7 @@ namespace AISPHRD.Tabs.Add
             try
             {
                 _newConscript.StudentId = (StudentComboBox.SelectedItem as Student).StudentId;
-                _newConscript.Commissariat = CommissariatTextBox.Text;
+                _newConscript.Commissariat = CommissariatComboBox.Text;
                 App.ServiceProvider.GetService<IConscriptRepository>().Insert(_newConscript);
                 MessageBox.Show("Новий військовозобов'язаний успішно доданий!");
                 App.ServiceProvider.GetService<TabsWindow>().CloseTab("ВІЙСЬКОВОЗОБОВ'ЯЗАНИЙ / ДОДАВАННЯ");
@@ -49,6 +49,8 @@ namespace AISPHRD.Tabs.Add
             {
                 StudentComboBox.SelectedIndex = 0;
             }
+
+            CommissariatComboBox.ItemsSource = App.ServiceProvider.GetService<IConscriptRepository>().GetUniqueCommissariats();
         }
     }
 }

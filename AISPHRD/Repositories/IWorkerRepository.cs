@@ -11,6 +11,12 @@ namespace AISPHRD.Repositories
 
         Worker GetWorker(int workerId);
 
+        List<string> GetUniqueDepartments();
+        
+        List<string> GetUniqueSexes();
+        
+        List<string> GetUniqueWorkerTypes();
+
         void Insert(Worker worker);
 
         void Update(Worker worker);

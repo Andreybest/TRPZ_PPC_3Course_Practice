@@ -25,10 +25,10 @@ namespace AISPHRD.Tabs.Add
             try
             {
                 _newWorker.FullName = FullNameTextBox.Text;
-                _newWorker.Department = DepartmentTextBox.Text;
-                _newWorker.Sex = SexTextBox.Text;
+                _newWorker.Department = DepartmentComboBox.Text;
+                _newWorker.Sex = SexComboBox.Text;
                 _newWorker.BirthDate = BirthDatePicker.DisplayDate;
-                _newWorker.WorkerType = WorkerTypeTextBox.Text;
+                _newWorker.WorkerType = WorkerTypeComboBox.Text;
                 App.ServiceProvider.GetService<IWorkerRepository>().Insert(_newWorker);
                 MessageBox.Show("Новий працівник успішно доданий!");
                 App.ServiceProvider.GetService<TabsWindow>().CloseTab("ПРАЦІВНИК / ДОДАВАННЯ");
@@ -43,6 +43,13 @@ namespace AISPHRD.Tabs.Add
         private void CancelButton_Click(object sender, RoutedEventArgs e)
         {
             App.ServiceProvider.GetService<TabsWindow>().CloseTab("ПРАЦІВНИК / ДОДАВАННЯ");
+        }
+
+        private void TabUserControl_Loaded(object sender, RoutedEventArgs e)
+        {
+            DepartmentComboBox.ItemsSource = App.ServiceProvider.GetService<IWorkerRepository>().GetUniqueDepartments();
+            SexComboBox.ItemsSource = App.ServiceProvider.GetService<IWorkerRepository>().GetUniqueSexes();
+            WorkerTypeComboBox.ItemsSource = App.ServiceProvider.GetService<IWorkerRepository>().GetUniqueWorkerTypes();
         }
     }
 }

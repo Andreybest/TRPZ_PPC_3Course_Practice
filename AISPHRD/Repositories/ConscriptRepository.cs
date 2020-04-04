@@ -29,6 +29,11 @@ namespace AISPHRD
             return _context.Conscripts.FirstOrDefault(c => c.ConscriptId == conscriptId);
         }
 
+        public List<string> GetUniqueCommissariats()
+        {
+            return _context.Conscripts.Select(c => c.Commissariat).Distinct().ToList();
+        }
+
         public void Insert(Conscript conscript)
         {
             _context.Conscripts.Add(conscript);

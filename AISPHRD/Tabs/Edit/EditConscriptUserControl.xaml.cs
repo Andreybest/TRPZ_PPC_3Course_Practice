@@ -25,7 +25,7 @@ namespace AISPHRD.Tabs.Edit
             try
             {
                 _editedConscript.StudentId = (StudentComboBox.SelectedItem as Student).StudentId;
-                _editedConscript.Commissariat = CommissariatTextBox.Text;
+                _editedConscript.Commissariat = CommissariatComboBox.Text;
                 App.ServiceProvider.GetService<IConscriptRepository>().Update(_editedConscript);
                 MessageBox.Show("Інформація про військовозобов'язаного успішно оновлено!");
                 App.ServiceProvider.GetService<TabsWindow>().CloseTab("ВІЙСЬКОВОЗОБОВ'ЯЗАНИЙ / РЕДАГУВАННЯ");
@@ -44,7 +44,8 @@ namespace AISPHRD.Tabs.Edit
 
         private void TabUserControl_Loaded(object sender, RoutedEventArgs e)
         {
-            CommissariatTextBox.Text = _editedConscript.Commissariat;
+            CommissariatComboBox.ItemsSource = App.ServiceProvider.GetService<IConscriptRepository>().GetUniqueCommissariats();
+            CommissariatComboBox.Text = _editedConscript.Commissariat;
             StudentComboBox.ItemsSource = App.ServiceProvider.GetService<IStudentRepository>().GetAll();
             if (StudentComboBox.Items.Count > 0)
             {

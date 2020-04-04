@@ -11,6 +11,12 @@ namespace AISPHRD.Repositories
 
         Student GetStudent(int studentId);
 
+        List<string> GetUniqueSpecialities();
+
+        List<string> GetUniqueFaculties();
+
+        List<string> GetUniqueSexes();
+
         void Insert(Student student);
 
         void Update(Student student);

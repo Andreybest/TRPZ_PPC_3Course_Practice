@@ -24,14 +24,17 @@ namespace AISPHRD.Tabs.Edit
         public void FillFields(Worker worker)
         {
             FullNameTextBox.Text = worker.FullName;
-            DepartmentTextBox.Text = worker.Department;
-            SexTextBox.Text = worker.Sex;
+            DepartmentComboBox.Text = worker.Department;
+            SexComboBox.Text = worker.Sex;
             BirthDatePicker.SelectedDate = worker.BirthDate;
-            WorkerTypeTextBox.Text = worker.WorkerType;
+            WorkerTypeComboBox.Text = worker.WorkerType;
         }
 
         private void TabUserControl_Loaded(object sender, RoutedEventArgs e)
         {
+            DepartmentComboBox.ItemsSource = App.ServiceProvider.GetService<IWorkerRepository>().GetUniqueDepartments();
+            SexComboBox.ItemsSource = App.ServiceProvider.GetService<IWorkerRepository>().GetUniqueSexes();
+            WorkerTypeComboBox.ItemsSource = App.ServiceProvider.GetService<IWorkerRepository>().GetUniqueWorkerTypes();
             FillFields(_editedWorker);
         }
 
@@ -40,10 +43,10 @@ namespace AISPHRD.Tabs.Edit
             try
             {
                 _editedWorker.FullName = FullNameTextBox.Text;
-                _editedWorker.Department = DepartmentTextBox.Text;
-                _editedWorker.Sex = SexTextBox.Text;
+                _editedWorker.Department = DepartmentComboBox.Text;
+                _editedWorker.Sex = SexComboBox.Text;
                 _editedWorker.BirthDate = BirthDatePicker.DisplayDate;
-                _editedWorker.WorkerType = WorkerTypeTextBox.Text;
+                _editedWorker.WorkerType = WorkerTypeComboBox.Text;
                 App.ServiceProvider.GetService<IWorkerRepository>().Update(_editedWorker);
                 MessageBox.Show("Інформація про працівника успішно оновлена!");
                 App.ServiceProvider.GetService<TabsWindow>().CloseTab("ПРАЦІВНИК / РЕДАГУВАННЯ");

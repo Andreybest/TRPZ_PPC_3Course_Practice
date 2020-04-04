@@ -11,6 +11,8 @@ namespace AISPHRD.Repositories
 
         Conscript GetConscript(int conscriptId);
 
+        List<string> GetUniqueCommissariats();
+
         void Insert(Conscript conscript);
 
         void Update(Conscript conscript);

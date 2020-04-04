@@ -33,6 +33,21 @@ namespace AISPHRD
             return _context.Students.FirstOrDefault(s => s.StudentId == studentId);
         }
 
+        public List<string> GetUniqueSpecialities()
+        {
+            return _context.Students.Select(s => s.Speciality).Distinct().ToList();
+        }
+
+        public List<string> GetUniqueFaculties()
+        {
+            return _context.Students.Select(s => s.Faculty).Distinct().ToList();
+        }
+
+        public List<string> GetUniqueSexes()
+        {
+            return _context.Students.Select(s => s.Sex).Distinct().ToList();
+        }
+
         public void Insert(Student student)
         {
             _context.Students.Add(student);

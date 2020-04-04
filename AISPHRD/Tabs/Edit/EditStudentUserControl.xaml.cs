@@ -4,6 +4,7 @@ using System;
 using System.Windows;
 using Microsoft.Extensions.DependencyInjection;
 using AISPHRD.Repositories;
+using System.Text.RegularExpressions;
 
 namespace AISPHRD.Tabs.Edit
 {
@@ -23,9 +24,9 @@ namespace AISPHRD.Tabs.Edit
         public void FillFields(Student student)
         {
             FullNameTextBox.Text = student.FullName;
-            SpecialityTextBox.Text = student.Speciality;
-            FacultyTextBox.Text = student.Faculty;
-            SexTextBox.Text = student.Sex;
+            SpecialityComboBox.Text = student.Speciality;
+            FacultyComboBox.Text = student.Faculty;
+            SexComboBox.Text = student.Sex;
             YearTextBox.Text = student.Year.ToString();
             AddressTypeTextBox.Text = student.Address;
             BirthDatePicker.SelectedDate = student.BirthDate;
@@ -33,6 +34,9 @@ namespace AISPHRD.Tabs.Edit
 
         private void TabUserControl_Loaded(object sender, RoutedEventArgs e)
         {
+            SpecialityComboBox.ItemsSource = App.ServiceProvider.GetService<IStudentRepository>().GetUniqueSpecialities();
+            FacultyComboBox.ItemsSource = App.ServiceProvider.GetService<IStudentRepository>().GetUniqueFaculties();
+            SexComboBox.ItemsSource = App.ServiceProvider.GetService<IStudentRepository>().GetUniqueSexes();
             FillFields(_editedStudent);
         }
 
@@ -41,9 +45,9 @@ namespace AISPHRD.Tabs.Edit
             try
             {
                 _editedStudent.FullName = FullNameTextBox.Text;
-                _editedStudent.Speciality = SpecialityTextBox.Text;
-                _editedStudent.Faculty = FacultyTextBox.Text;
-                _editedStudent.Sex = SexTextBox.Text;
+                _editedStudent.Speciality = SpecialityComboBox.Text;
+                _editedStudent.Faculty = FacultyComboBox.Text;
+                _editedStudent.Sex = SexComboBox.Text;
                 _editedStudent.Year = int.Parse(YearTextBox.Text);
                 _editedStudent.Address = AddressTypeTextBox.Text;
                 _editedStudent.BirthDate = BirthDatePicker.DisplayDate;
@@ -61,6 +65,11 @@ namespace AISPHRD.Tabs.Edit
         private void CancelButton_Click(object sender, RoutedEventArgs e)
         {
             App.ServiceProvider.GetService<TabsWindow>().CloseTab("СТУДЕНТ / РЕДАГУВАННЯ");
+        }
+
+        private void AddressTypeTextBox_PreviewTextInput(object sender, System.Windows.Input.TextCompositionEventArgs e)
+        {
+            e.Handled = Regex.IsMatch(e.Text, "[^0-9]");
         }
     }
 }

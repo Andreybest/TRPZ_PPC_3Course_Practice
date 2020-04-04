@@ -32,6 +32,21 @@ namespace AISPHRD
             return _context.Workers.FirstOrDefault(w => w.WorkerId == workerId);
         }
 
+        public List<string> GetUniqueDepartments()
+        {
+            return _context.Workers.Select(w => w.Department).Distinct().ToList();
+        }
+
+        public List<string> GetUniqueSexes()
+        {
+            return _context.Workers.Select(w => w.Sex).Distinct().ToList();
+        }
+
+        public List<string> GetUniqueWorkerTypes()
+        {
+            return _context.Workers.Select(w => w.WorkerType).Distinct().ToList();
+        }
+
         public void Insert(Worker worker)
         {
             _context.Workers.Add(worker);

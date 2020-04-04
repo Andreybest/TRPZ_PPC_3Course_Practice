@@ -29,7 +29,7 @@
                 <DataGridTextColumn Header="Відділ" Binding="{Binding Department}"/>
                 <DataGridTextColumn Header="Стать" Binding="{Binding Sex}"/>
                 <DataGridTextColumn Header="Дата Народження" Binding="{Binding BirthDate}"/>
-                <DataGridTextColumn Header="Тип Робочого?" Binding="{Binding WorkerType}"/>
+                <DataGridTextColumn Header="Тип Робочого" Binding="{Binding WorkerType}"/>
                 <DataGridTemplateColumn Header="Дії">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
