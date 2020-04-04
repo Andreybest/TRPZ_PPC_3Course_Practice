@@ -56,5 +56,10 @@ namespace AISPHRD.Tabs
         {
             App.ServiceProvider.GetService<TabsWindow>().CreateNewTab(new EditUserPasswordUserControl(), "ЗМІНА ПАРОЛЮ");
         }
+
+        private void AboutButton_Click(object sender, RoutedEventArgs e)
+        {
+            App.ServiceProvider.GetService<TabsWindow>().CreateNewTab(new AboutUserControl(), "ІНФОРМАЦІЯ ПРО ПРОГРАМУ");
+        }
     }
 }
