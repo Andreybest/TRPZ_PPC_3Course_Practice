@@ -50,7 +50,7 @@ namespace AISPHRD.Tabs.Edit
                 _editedStudent.Sex = SexComboBox.Text;
                 _editedStudent.Year = int.Parse(YearTextBox.Text);
                 _editedStudent.Address = AddressTypeTextBox.Text;
-                _editedStudent.BirthDate = BirthDatePicker.DisplayDate;
+                _editedStudent.BirthDate = BirthDatePicker.SelectedDate.GetValueOrDefault();
                 App.ServiceProvider.GetService<IStudentRepository>().Update(_editedStudent);
                 MessageBox.Show("Інформація про студента успішно оновлена!");
                 App.ServiceProvider.GetService<TabsWindow>().CloseTab("СТУДЕНТ / РЕДАГУВАННЯ");
@@ -67,7 +67,7 @@ namespace AISPHRD.Tabs.Edit
             App.ServiceProvider.GetService<TabsWindow>().CloseTab("СТУДЕНТ / РЕДАГУВАННЯ");
         }
 
-        private void AddressTypeTextBox_PreviewTextInput(object sender, System.Windows.Input.TextCompositionEventArgs e)
+        private void YearTextBox_PreviewTextInput(object sender, System.Windows.Input.TextCompositionEventArgs e)
         {
             e.Handled = Regex.IsMatch(e.Text, "[^0-9]");
         }

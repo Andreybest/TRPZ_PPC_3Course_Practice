@@ -45,7 +45,7 @@ namespace AISPHRD.Tabs.Edit
                 _editedWorker.FullName = FullNameTextBox.Text;
                 _editedWorker.Department = DepartmentComboBox.Text;
                 _editedWorker.Sex = SexComboBox.Text;
-                _editedWorker.BirthDate = BirthDatePicker.DisplayDate;
+                _editedWorker.BirthDate = BirthDatePicker.SelectedDate.GetValueOrDefault();
                 _editedWorker.WorkerType = WorkerTypeComboBox.Text;
                 App.ServiceProvider.GetService<IWorkerRepository>().Update(_editedWorker);
                 MessageBox.Show("Інформація про працівника успішно оновлена!");

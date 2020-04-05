@@ -27,7 +27,7 @@ namespace AISPHRD.Tabs.Add
                 _newWorker.FullName = FullNameTextBox.Text;
                 _newWorker.Department = DepartmentComboBox.Text;
                 _newWorker.Sex = SexComboBox.Text;
-                _newWorker.BirthDate = BirthDatePicker.DisplayDate;
+                _newWorker.BirthDate = BirthDatePicker.SelectedDate.GetValueOrDefault();
                 _newWorker.WorkerType = WorkerTypeComboBox.Text;
                 App.ServiceProvider.GetService<IWorkerRepository>().Insert(_newWorker);
                 MessageBox.Show("Новий працівник успішно доданий!");

@@ -31,7 +31,7 @@ namespace AISPHRD.Tabs.Add
                 _newStudent.Sex = SexComboBox.Text;
                 _newStudent.Year = int.Parse(YearTextBox.Text);
                 _newStudent.Address = AddressTypeTextBox.Text;
-                _newStudent.BirthDate = BirthDatePicker.DisplayDate;
+                _newStudent.BirthDate = BirthDatePicker.SelectedDate.GetValueOrDefault();
                 App.ServiceProvider.GetService<IStudentRepository>().Insert(_newStudent);
                 MessageBox.Show("Новий студент успішно доданий!");
                 App.ServiceProvider.GetService<TabsWindow>().CloseTab("СТУДЕНТ / ДОДАВАННЯ");

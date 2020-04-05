@@ -33,10 +33,10 @@
         <ComboBox x:Name="SexComboBox" HorizontalAlignment="Left" Margin="20,120,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.363,0.459" Grid.Column="2" Grid.Row="1" FontSize="18" Width="300" Height="33" IsEditable="True"/>
 
         <Label Content="Курс" FontSize="18" HorizontalAlignment="Right" VerticalAlignment="Top" Grid.Column="1" Grid.Row="1" Margin="0,160,20,0" Height="32" Width="46"/>
-        <TextBox x:Name="YearTextBox" HorizontalAlignment="Left" Margin="20,160,0,0" TextWrapping="Wrap" VerticalAlignment="Top" RenderTransformOrigin="0.363,0.459" Grid.Column="2" Grid.Row="1" FontSize="18" Width="300" Height="33"/>
+        <TextBox x:Name="YearTextBox" HorizontalAlignment="Left" Margin="20,160,0,0" TextWrapping="Wrap" VerticalAlignment="Top" RenderTransformOrigin="0.363,0.459" Grid.Column="2" Grid.Row="1" FontSize="18" Width="300" Height="33" PreviewTextInput="YearTextBox_PreviewTextInput"/>
 
         <Label Content="Адреса" FontSize="18" HorizontalAlignment="Right" VerticalAlignment="Top" Grid.Column="1" Grid.Row="1" Margin="0,200,20,0" Height="32" Width="67"/>
-        <TextBox x:Name="AddressTypeTextBox" HorizontalAlignment="Left" Margin="20,200,0,0" TextWrapping="Wrap" VerticalAlignment="Top" RenderTransformOrigin="0.363,0.459" Grid.Column="2" Grid.Row="1" FontSize="18" Width="300" Height="33" PreviewTextInput="AddressTypeTextBox_PreviewTextInput"/>
+        <TextBox x:Name="AddressTypeTextBox" HorizontalAlignment="Left" Margin="20,200,0,0" TextWrapping="Wrap" VerticalAlignment="Top" RenderTransformOrigin="0.363,0.459" Grid.Column="2" Grid.Row="1" FontSize="18" Width="300" Height="33"/>
 
         <Label Content="Дата Народження" FontSize="18" HorizontalAlignment="Right" VerticalAlignment="Top" Grid.Column="1" Grid.Row="1" Margin="0,240,20,0" Height="32" Width="157"/>
         <DatePicker x:Name="BirthDatePicker" Grid.Column="2" HorizontalAlignment="Left" Margin="20,240,0,0" Grid.Row="1" VerticalAlignment="Top" FontSize="18" Width="300" Height="33"/>
